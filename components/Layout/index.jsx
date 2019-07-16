@@ -8,7 +8,7 @@ export default class index extends Component {
       <Fragment>
         <Navbar />
         <div id="LAYOUT">{this.props.children}</div>
-        <style jsx>
+        <style jsx="true">
           {`
 						#LAYOUT {
 							display:grid;

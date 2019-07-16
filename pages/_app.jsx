@@ -1,10 +1,4 @@
 import App, { Container } from 'next/app';
-import NextSeo from 'next-seo';
-
-import isEmpty from '../utils/isEmpty';
-
-// Axios
-import axios from 'axios';
 
 // let's create a configuration for next-seo
 const DEFAULT_SEO = {
@@ -70,7 +64,7 @@ class MyApp extends App {
         <div id="APP-WRAPPER">
           <Component {...pageProps} />
         </div>
-        <style jsx="true">
+        <style jsx={"true"}>
           {`
             /* APP WRAPPER */
             #APP-WRAPPER {

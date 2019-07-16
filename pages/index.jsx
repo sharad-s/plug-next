@@ -50,39 +50,30 @@ const setDefaultSEO = ({ shortID, imageURL, plugTitle, artistName }) => {
 // Class Component
 class RootPage extends Component {
   // Make initial request to server and populate initial props from URL Query
-  static async getInitialProps({ req }, { query }) {
+
+    state = {
+      query: {}
+    }
+
+  componentDidMount() {
     console.log('index.jsx: getInitialProps:');
 
-    // Get user agent
-    const userAgent = req ? req.headers['user-agent'] : navigator.userAgent;
-
-    // Get Query Params from URL
-    console.log('index.jsx : router.query:', query);
-
-    const {
-      shortID = 'b00bies',
-      imageURL = 'https://i1.sndcdn.com/avatars-000462285696-xfmenv-t500x500.jpg',
-      plugTitle = 'title',
-      artistName = 'artist',
-    } = query;
-
-    // Default Query
-    const returnedQuery = {
-      shortID,
-      imageURL,
-      plugTitle,
-      artistName
+    const query = {
+      shortID: 'b00bies',
+      imageURL:
+        'https://i1.sndcdn.com/avatars-000462285696-xfmenv-t500x500.jpg',
+      plugTitle: 'title',
+      artistName: 'artist',
     };
 
     // Set SEO params
-    setDefaultSEO(returnedQuery);
-    return { userAgent, ...returnedQuery };
+    setDefaultSEO(query);
+    return this.setState({query});
   }
 
   // Use props from getInitialProps to populate meta tags on render
   render() {
-    const { userAgent } = this.props;
-    const { shortID, imageURL, plugTitle, artistName } = this.props;
+    const { shortID, imageURL, plugTitle, artistName } = this.state.query;
 
     return (
       <Fragment>
@@ -90,14 +81,15 @@ class RootPage extends Component {
         <Layout>
           <div className="body-container">
             <h1> Welcome to Root!</h1>
-            <p>User Agent: {userAgent}</p>
             <p>Short ID: {shortID}</p>
             <p>Image URL: {imageURL}</p>
             <p>Plug Title: {plugTitle}</p>
             <p>Artist Name: {artistName}</p>
+            <p>Port: {process.env.PORT}</p>
+
           </div>
         </Layout>
-        <style jsx>
+        <style jsx="true">
           {`
             /* APP WRAPPER */
             .body-container {

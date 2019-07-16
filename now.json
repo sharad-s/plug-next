@@ -1,8 +1,5 @@
 {
   "version": 2,
-  "name": "plug-next",
-  "routes": [
-    { "src": "/api/(.*)", "dest": "https://plug-api-staging.herokuapp.com" }
-  ]
+  "name": "plug-next"
 }
 

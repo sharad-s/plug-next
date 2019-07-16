@@ -23,13 +23,12 @@ class Navbar extends Component {
             <a id="3">explore</a>
           </Link>
         </div>
-        <style jsx>
+        <style jsx="true">
           {`
             a {
               text-decoration: none;
               color: #f3e576;
             }
-
             #1 {
               grid-column-start: 1;
               font-size: 17px;
@@ -37,19 +36,16 @@ class Navbar extends Component {
               
 
             }
-
             #2 {
               grid-column-start: 2;
               font-size: 35px;
               font-weight: bold;
             }
-
             #3 {
               grid-column-start: 3;
               font-size: 17px;
               padding-top: 7px;
             }
-
             .header-container {
               /*margin: auto;*/
               margin-top: 0px;
@@ -64,7 +60,6 @@ class Navbar extends Component {
               align-items: center;
               // background-color: black;
             }
-
             .header-item {
               color: #f3e576;
               text-decoration: none;
@@ -72,7 +67,6 @@ class Navbar extends Component {
               font-family: 'Poppins', sans-serif;
               font-size: 35px;
             }
-
             .header-item-small {
               color: #f3e576;
               text-decoration: none;
