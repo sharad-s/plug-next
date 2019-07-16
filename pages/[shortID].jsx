@@ -33,17 +33,33 @@ const SEO = {
   },
 };
 
-const setDefaultSEO = ({ shortID, imageURL, plugTitle, artistName }) => {
-  SEO.title = 'index: title: ' + shortID;
-  SEO.openGraph.title = `index: opengraph.title: Listen to ${plugTitle} by ${artistName}`;
-  SEO.description = `index: description: ${plugTitle} by ${artistName}`;
-  SEO.openGraph.description = `index: openGraph.description: ${plugTitle} by ${artistName} shortID ${shortID}`;
+// const setDefaultSEO = ({ shortID, imageURL, plugTitle, artistName }) => {
+//   SEO.title = 'index: title: ' + shortID;
+//   SEO.openGraph.title = `index: opengraph.title: Listen to ${plugTitle} by ${artistName}`;
+//   SEO.description = `index: description: ${plugTitle} by ${artistName}`;
+//   SEO.openGraph.description = `index: openGraph.description: ${plugTitle} by ${artistName} shortID ${shortID}`;
+//   SEO.openGraph.images = [
+//     {
+//       url: imageURL,
+//       width: 1200,
+//       height: 1200,
+//       alt: `index: alt: ${plugTitle} by ${artistName}`,
+//     },
+//   ];
+//   return;
+// };
+
+const setDefaultSEO = ({ shortID, imageURL, title, artistName }) => {
+  SEO.title = shortID;
+  SEO.openGraph.title = `Listen to ${title} in under 60 seconds on Plug.`;
+  SEO.description = `${title} by ${artistName}`;
+  SEO.openGraph.description = `Create, share and discover swipable 15 second snippets of your music with Plug.`;
   SEO.openGraph.images = [
     {
       url: imageURL,
       width: 1200,
       height: 1200,
-      alt: `index: alt: ${plugTitle} by ${artistName}`,
+      alt: `index: alt: ${title} by ${artistName}`,
     },
   ];
   return;
@@ -59,12 +75,12 @@ class RootPage extends Component {
     const userAgent = req ? req.headers['user-agent'] : navigator.userAgent;
 
     // Get Query Params from URL
-    console.log('index.jsx : router.query:', router.query);
-    console.log('index.jsx : req.query:', req.query);
+    // console.log('index.jsx : router.query:', router.query);
+    // console.log('index.jsx : req.query:', req.query);
 
     try {
       // Make API call
-      const res = await axios.get(`/api/plugs/shortID/0ba590`);
+      const res = await axios.get(`/api/plugs/shortID/${router.query.shortID}`);
 
       // Log Result
       // console.log('index: api: res:', res.data);
@@ -82,7 +98,15 @@ class RootPage extends Component {
     } catch (err) {
       // If error in API call, log it and throw
       console.log('index: api: Error:', err.message);
-      throw err.message;
+      return {
+        userAgent,
+        ...{
+          shortID: 'DEFAULT',
+          imageURL: 'DEFAULT',
+          title: 'DEFAULT',
+          artistName: 'DEFAULT',
+        },
+      };
     }
   }
 

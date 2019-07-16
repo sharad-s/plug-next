@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "NODE_ENV=development PORT=3000 node server/index.js",
     "build": "next build",
-    "start": "PORT=9090 node server/index.js start",
+    "start": "node server/index.js",
     "prod": "NODE_ENV=production PORT=9090 node server/index.js"
 
   },
