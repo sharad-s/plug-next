@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 // Buttons
-import like from '../../images/like.svg';
-import dislike from '../../images/cancel.svg';
-import goback from '../../images/go-back.svg';
+// import like from '../../images/like.svg';
+// import dislike from '../../images/cancel.svg';
+// import goback from '../../images/go-back.svg';
 import CopyURLButton from '../ShareButtons/CopyURLButton';
 
 // Redux
@@ -52,21 +52,21 @@ class ButtonsPanel extends Component {
 
 		return (
 			<center className="buttons-panel-container">
-				<div class="buttons-panel noselect">
+				<div className="buttons-panel noselect">
 					<img
-						src={goback}
-						class="button-in button-small"
+						src={"/static/images/go-back.svg"}
+						className="button-in button-small"
 						onClick={this.prevSnippet}
 						style={prevButtonStyle}
 					/>
 					<img
-						src={dislike}
-						class="button-in"
+						src={"/static/images/cancel.svg"}
+						className="button-in"
 						onClick={this.handleDooFeedback}
 					/>
 					<img
-						src={like}
-						class="button-in sm"
+						src={"/static/images/like.svg"}
+						className="button-in sm"
 						onClick={this.handleFireFeedback}
 					/>
 					<CopyURLButton />

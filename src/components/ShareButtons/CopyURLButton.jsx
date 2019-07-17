@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 // Logos
-import share from '../../images/share.svg';
+// import share from '/static/images/share.svg';
 
 // Redux
 import { connect } from 'react-redux';
@@ -19,7 +19,6 @@ class ShareButton extends Component {
   handleCopy = async () => {
     const { audio } = this.props;
 
-
     console.log('CLICKED COPY', this.props);
     this.setState({ copied: true });
     track_SharePlug({
@@ -27,9 +26,7 @@ class ShareButton extends Component {
       method: 'Copy Link',
     });
     alert(
-      `Copied Plug link (https://plug.af/${
-        audio.currentPlug.shortID
-      }) to Clipboard!`,
+      `Copied Plug link (https://plug.af/${audio.currentPlug.shortID}) to Clipboard!`,
     );
   };
 
@@ -43,7 +40,7 @@ class ShareButton extends Component {
         text={`https://plug.af/${audio.currentPlug.shortID}`}
         onCopy={this.handleCopy}
       >
-        <img src={share} class="button-in button-small" />
+        <img src={'/static/images/share.svg'} class="button-in button-small" />
       </CopyToClipboard>
     );
   }

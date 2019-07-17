@@ -1,13 +1,17 @@
 import React, { Component, Fragment } from 'react';
 import NextSeo from 'next-seo';
+import dynamic from 'next/dynamic'
 
 // Next
 
 // CSS
-import "../static/app.css"
+import '../static/app.css';
 
 // Page Container
 import Layout from '../src/components/Layout';
+
+// SubComponents
+const AudioPage = dynamic(() => import('../src/pages/AudioPage'));
 
 const SEO = {
   title: `index: Default title`,
@@ -53,15 +57,15 @@ const setDefaultSEO = ({ shortID, imageURL, plugTitle, artistName }) => {
 class RootPage extends Component {
   // Make initial request to server and populate initial props from URL Query
 
-    state = {
-      query: {}
-    }
+  state = {
+    query: {},
+  };
 
-  componentDidMount() {
+  static async getInitialProps({ req }, router) {
     console.log('index.jsx: getInitialProps:');
 
     const query = {
-      shortID: 'b00bies',
+      shortID: '0ba590',
       imageURL:
         'https://i1.sndcdn.com/avatars-000462285696-xfmenv-t500x500.jpg',
       plugTitle: 'title',
@@ -70,20 +74,23 @@ class RootPage extends Component {
 
     // Set SEO params
     setDefaultSEO(query);
-    return this.setState({query});
+    return {...query}
+  }
+
+  componentDidMount(){
+    
   }
 
   // Use props from getInitialProps to populate meta tags on render
   render() {
-    const { shortID, imageURL, plugTitle, artistName } = this.state.query;
+    const { shortID, imageURL, plugTitle, artistName } = this.props;
 
     return (
       <Fragment>
         <NextSeo config={SEO} />
         <Layout>
-          <div className="body-container">
-           
-          </div>
+          <div className="body-container"></div>
+          <AudioPage shortID={shortID} />
         </Layout>
         <style jsx="true">
           {`

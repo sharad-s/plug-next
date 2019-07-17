@@ -1,7 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { withRouter } from 'react-router';
 // import isEmpty from '../../utils/isEmpty';
-import queryString from 'query-string';
 
 // Subcomponents
 import ButtonsPanel from '../../components/ButtonsPanel';
@@ -50,7 +48,7 @@ class AudioPage extends Component {
 
     connectSoundcloud();
 
-    const { shortID } = this.props.match.params;
+    const { shortID } = this.props;
 
     let plug;
     // If Specific ShortID in URL
@@ -64,10 +62,10 @@ class AudioPage extends Component {
     }
 
     // Check for any query params (link sharing)
-    let { preview } = queryString.parse(this.props.location.search);
-    if (preview === 'true') {
-      this.setState({ preview: true });
-    }
+    // let { preview } = queryString.parse(this.props.location.search);
+    // if (preview === 'true') {
+    //   this.setState({ preview: true });
+    // }
 
     await newUpdatePlaylist(plug);
     console.log('componentDidMount:GETTING TRACK');
@@ -92,9 +90,6 @@ class AudioPage extends Component {
   render() {
     const { audio, plug } = this.props;
 
-    const renderedPlaylistName = audio.playlistName ? (
-      <h3>Playlist {audio.playlistName} </h3>
-    ) : null;
 
     const renderedPanel = this.state.preview ? (
       <PreviewPanel shortID={audio.currentPlug.shortID} />
@@ -102,21 +97,19 @@ class AudioPage extends Component {
       <ButtonsPanel />
     );
 
-    const renderedPage = (audio.plugs.length === 0 & plug.loading) ? (
-      <div className="audiopage-loader-container">
-        <Loader />
-      </div>
-    ) : (
-      <Fragment>
-        <SwipableCards />
-        {renderedPanel}
-      </Fragment>
-    );
-
-    return (
+    const renderedPage =
+      (audio.plugs.length === 0) & plug.loading ? (
+        <div className="audiopage-loader-container">
+          <Loader />
+        </div>
+      ) : (
         <Fragment>
-        {renderedPage}
-        </Fragment>);
+          <SwipableCards />
+          {renderedPanel}
+        </Fragment>
+      );
+
+    return <Fragment>{renderedPage}</Fragment>;
   }
 }
 
@@ -125,4 +118,4 @@ const mapStateToProps = state => ({
   plug: state.plug,
 });
 
-export default withRouter(connect(mapStateToProps)(AudioPage));
+export default connect(mapStateToProps)(AudioPage);

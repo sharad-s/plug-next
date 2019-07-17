@@ -81,19 +81,19 @@ class Beatcard extends Component {
     const renderedPlayCount = <span> {track.playCount} </span>;
 
     return (
-      <div class="card-container-god">
+      <div className="card-container-god">
         {/* Card In Whole */}
-        <div class="card-container noselect">
+        <div className="card-container noselect">
           {/* Card Image + Play BUtton Container */}
-          <div class="card-image-container">
+          <div className="card-image-container">
             {/* Card Image */}
             <img src={track.imageURL} className="card-image" />
 
             {/* 25% Image Bottom Overlay with Track Details */}
-            <div class="information-overlay" id="OVERLAY">
-              <div class="fill" />
-              <div class="details-container">
-                <div class="icon-on-overlay">
+            <div className="information-overlay" id="OVERLAY">
+              <div className="fill" />
+              <div className="details-container">
+                <div className="icon-on-overlay">
                   {audio.loading ? (
                     <Loader />
                   ) : (
@@ -102,7 +102,7 @@ class Beatcard extends Component {
                     </Fragment>
                   )}
                 </div>
-                <div class="details">
+                <div className="details">
                   <p className="title-text noselect">
                     {track.title ? track.title : null}
                   </p>
@@ -114,13 +114,13 @@ class Beatcard extends Component {
             </div>
 
             {/* 100% Invisble Image Overlay */}
-            <div class="invisible-overlay" id="INVISIBLE-OVERLAY" />
+            <div className="invisible-overlay" id="INVISIBLE-OVERLAY" />
           </div>
 
           {/* Soundcloud Underbutton */}
 
-          <a class="pure-button btn-sc" href={track.soundcloudPermalinkURL}>
-            <i class="fab fa-soundcloud" /> Listen on Soundcloud
+          <a className="pure-button btn-sc" href={track.soundcloudPermalinkURL}>
+            <i className="fab fa-soundcloud" /> Listen on Soundcloud
           </a>
         </div>
       </div>
