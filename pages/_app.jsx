@@ -4,7 +4,6 @@ import App, { Container } from 'next/app';
 import '../static/css/app.css';
 import '../static/css/pure-buttons.css';
 
-
 // let's create a configuration for next-seo
 const DEFAULT_SEO = {
   title: '_app: title: Next.js SEO Plugin',
@@ -31,8 +30,6 @@ const DEFAULT_SEO = {
     cardType: 'summary_large_image',
   },
 };
-
-
 
 class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {

@@ -69,14 +69,12 @@ class Beatcard extends Component {
     const { audio, track } = this.props;
 
     const renderedPlayButtonText = audio.isPlaying ? (
-      <i className="fas fa-pause" />
+      <i className="fas fa-pause" onClick={this.handleClick} />
     ) : (
-      <i className="fas fa-play" />
+      <i className="fas fa-play" onClick={this.handleClick} />
     );
 
-    const renderedPlayButton = (
-      <button onClick={this.handleClick}>{renderedPlayButtonText}</button>
-    );
+    const renderedPlayButton = (<div style={{marginLeft:"10px"}}>{renderedPlayButtonText}</div>) ;
 
     const renderedPlayCount = <span> {track.playCount} </span>;
 

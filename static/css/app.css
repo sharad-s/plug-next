@@ -95,8 +95,8 @@ body {
   }
 
   #LAYOUT {
-    display:grid;
-    grid-template-columns: 10% 1fr 10%;
+    /* display:grid; */
+    /* grid-template-columns: 5% 1fr 5%; */
     grid-row-start:2
   }
 
@@ -233,9 +233,9 @@ body {
   /*Swipables*/
   
   .swipable-container {
-    /*background-color: lime;*/
+    /* background-color: lime; */
     height: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
     grid-column-start: 2;
     padding: 10px;
   }
