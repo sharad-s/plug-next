@@ -1,5 +1,8 @@
 import App, { Container } from 'next/app';
 
+// CSS
+import '../static/app.css';
+
 // let's create a configuration for next-seo
 const DEFAULT_SEO = {
   title: '_app: title: Next.js SEO Plugin',

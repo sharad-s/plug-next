@@ -22,7 +22,7 @@ import {
 
 import { createPlugWithApi } from '../plugs/actions';
 
-import axios from 'axios';
+import axios from '../../utils/axios';
 import { addToken, removeToken } from '../../utils/setAuthToken';
 
 export const registerUserWithPlug = (

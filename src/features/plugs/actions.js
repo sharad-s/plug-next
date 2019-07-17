@@ -1,5 +1,5 @@
 // Modules
-import axios from 'axios';
+import axios from '../../utils/axios';
 import SC from 'soundcloud';
 
 // Redux

@@ -18,8 +18,6 @@ export default class index extends Component {
 							display:grid;
 							grid-template-columns: 10% 1fr 10%;
 							grid-row-start:2
-							background-color:white;
-
 						}
 					`}
         </style>

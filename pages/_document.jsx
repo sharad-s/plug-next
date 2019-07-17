@@ -19,15 +19,6 @@ class MyDocument extends Document {
           <Main />
           <NextScript />
         </body>
-        <style jsx="true">
-          {`
-            body {
-              font-family: 'Poppins', sans-serif !important;
-              color: #f3e576 !important;
-              background-color: #151513 !important;
-            }
-          `}
-        </style>
       </Html>
     );
   }

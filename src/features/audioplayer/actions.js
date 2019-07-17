@@ -1,6 +1,6 @@
 import SoundCloudAudio from 'soundcloud-audio';
 import SC from 'soundcloud';
-import axios from 'axios';
+import axios from '../../utils/axios';
 
 // Redux
 import * as types from './types';

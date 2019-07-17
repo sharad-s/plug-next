@@ -1,17 +1,23 @@
 import React, { Component, Fragment } from 'react';
 import NextSeo from 'next-seo';
-import dynamic from 'next/dynamic'
+import dynamic from 'next/dynamic';
 
 // Next
 
-// CSS
-import '../static/app.css';
+
 
 // Page Container
 import Layout from '../src/components/Layout';
 
 // SubComponents
-const AudioPage = dynamic(() => import('../src/pages/AudioPage'));
+const AudioPage = dynamic(() => import('../src/pages/AudioPage'), {
+  ssr: false,
+  loading: () => (
+    <h1>
+      <b>LOADING..</b>
+    </h1>
+  ),
+});
 
 const SEO = {
   title: `index: Default title`,
@@ -65,7 +71,7 @@ class RootPage extends Component {
     console.log('index.jsx: getInitialProps:');
 
     const query = {
-      shortID: '0ba590',
+      shortID: null,
       imageURL:
         'https://i1.sndcdn.com/avatars-000462285696-xfmenv-t500x500.jpg',
       plugTitle: 'title',
@@ -74,12 +80,10 @@ class RootPage extends Component {
 
     // Set SEO params
     setDefaultSEO(query);
-    return {...query}
+    return { ...query };
   }
 
-  componentDidMount(){
-    
-  }
+  componentDidMount() {}
 
   // Use props from getInitialProps to populate meta tags on render
   render() {
@@ -89,8 +93,7 @@ class RootPage extends Component {
       <Fragment>
         <NextSeo config={SEO} />
         <Layout>
-          <div className="body-container"></div>
-          <AudioPage shortID={shortID} />
+            <AudioPage shortID={shortID} />
         </Layout>
         <style jsx="true">
           {`
@@ -99,7 +102,6 @@ class RootPage extends Component {
               grid-row-start: 2;
               grid-column-start: 2;
               text-align: center;
-              background-color: salmon;
             }
           `}
         </style>
