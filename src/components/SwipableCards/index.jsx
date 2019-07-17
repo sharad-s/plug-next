@@ -19,7 +19,6 @@ import {
   newNextTrack,
 } from '../../features/audioplayer/actions';
 
-
 // Styles for Card Underneath
 const bottomBottomCardStyles = {
   cursor: 'pointer',
@@ -84,9 +83,7 @@ class App extends Component {
           );
 
           console.log(
-            `Current song should be ${
-              this.state.tracks[0].title
-            }. Next Song should be ${this.state.tracks[1].title}.
+            `Current song should be ${this.state.tracks[0].title}. Next Song should be ${this.state.tracks[1].title}.
             Third song should be ${this.state.tracks[2].title}.
             `,
           );
@@ -106,9 +103,7 @@ class App extends Component {
       const tracks = [];
 
       console.log(
-        `trackIndex Updated: Prev TrackIndex: ${
-          prevProps.audio.trackIndex
-        }, New TrackIndex: ${trackIndex}`,
+        `trackIndex Updated: Prev TrackIndex: ${prevProps.audio.trackIndex}, New TrackIndex: ${trackIndex}`,
       );
 
       tracks.push(
@@ -124,9 +119,7 @@ class App extends Component {
         );
 
         console.log(
-          `Current song should be ${
-            this.state.tracks[0].title
-          }. Next Song should be ${this.state.tracks[1].title}
+          `Current song should be ${this.state.tracks[0].title}. Next Song should be ${this.state.tracks[1].title}
             Third song should be ${this.state.tracks[2].title}.
           `,
         );
@@ -156,9 +149,7 @@ class App extends Component {
   handleSwipe = async swipeDirection => {
     this.setState({ currentSwipe: swipeDirection }, () => {
       console.log(
-        `SwipableCards: handleSwipe: set state.currentSwipe to ${
-          this.state.currentSwipe
-        }`,
+        `SwipableCards: handleSwipe: set state.currentSwipe to ${this.state.currentSwipe}`,
       );
     });
   };
@@ -185,8 +176,9 @@ class App extends Component {
 
     return (
       <Fragment>
-          {/* If Tracks are in local state, render Top and Bottom Card */}
-          {tracks.length > 0 ? (
+        {/* If Tracks are in local state, render Top and Bottom Card */}
+        {tracks.length > 0 ? (
+          <Fragment>
             <div className="swipable-container" id="SWIPABLE">
               {/* Top Swipable Card */}
 
@@ -206,21 +198,21 @@ class App extends Component {
                   </div>
                 </div>
               </Swipeable>
+            </div>
 
-              {/* Bottom, Fixed Non-Swipable Card */}
-              {tracks.length > 1 && (
-                <div id="NONSWIPABLE_CARD_BOTTOM">
-                  <Beatcard track={tracks[1]} />
-                </div>
-              )}
-              
-            </div>
-          ) : (
-            <div style={{ zIndex: '-2' }}>
-              {/* If No More Tracks in Local State, load empty card */}
-              <Beatcard track={emptyTrack} secondsPassed={0} />
-            </div>
-          )}
+            {/* Bottom, Fixed Non-Swipable Card */}
+            {tracks.length > 1 && (
+              <div id="NONSWIPABLE_CARD_BOTTOM">
+                <Beatcard track={tracks[1]} />
+              </div>
+            )}
+          </Fragment>
+        ) : (
+          <div className="swipable-container">
+            {/* If No More Tracks in Local State, load empty card */}
+            <Beatcard track={emptyTrack} secondsPassed={0} />
+          </div>
+        )}
       </Fragment>
     );
   }
