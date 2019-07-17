@@ -2,7 +2,9 @@ import React, { Component, Fragment } from 'react';
 import NextSeo from 'next-seo';
 
 // Next
-import Head from 'next/head';
+
+// CSS
+import "../static/app.css"
 
 // Page Container
 import Layout from '../src/components/Layout';
@@ -80,13 +82,7 @@ class RootPage extends Component {
         <NextSeo config={SEO} />
         <Layout>
           <div className="body-container">
-            <h1> Welcome to Root!</h1>
-            <p>Short ID: {shortID}</p>
-            <p>Image URL: {imageURL}</p>
-            <p>Plug Title: {plugTitle}</p>
-            <p>Artist Name: {artistName}</p>
-            <p>Port: {process.env.PORT}</p>
-
+           
           </div>
         </Layout>
         <style jsx="true">
