@@ -80,14 +80,14 @@ class RootPage extends Component {
 
     // Set SEO params
     setDefaultSEO(query);
-    return { ...query };
+    return { query };
   }
 
   componentDidMount() {}
 
   // Use props from getInitialProps to populate meta tags on render
   render() {
-    const { shortID, imageURL, plugTitle, artistName } = this.props;
+    const { shortID, imageURL, plugTitle, artistName } = this.props.query;
 
     return (
       <Fragment>

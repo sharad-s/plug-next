@@ -40,7 +40,7 @@ class ShareButton extends Component {
         text={`https://plug.af/${audio.currentPlug.shortID}`}
         onCopy={this.handleCopy}
       >
-        <img src={'/static/images/share.svg'} class="button-in button-small" />
+        <img src={'/static/images/share.svg'} className="button-in button-small" />
       </CopyToClipboard>
     );
   }
