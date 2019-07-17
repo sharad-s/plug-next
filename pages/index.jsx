@@ -2,10 +2,6 @@ import React, { Component, Fragment } from 'react';
 import NextSeo from 'next-seo';
 import dynamic from 'next/dynamic';
 
-// Next
-
-
-
 // Page Container
 import Layout from '../src/components/Layout';
 

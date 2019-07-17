@@ -1,11 +1,22 @@
 import React, { Component, Fragment } from 'react';
 import NextSeo from 'next-seo';
+import dynamic from 'next/dynamic';
 
 // API
 import axios from '../src/utils/axios';
 
 // Page Container
 import Layout from '../src/components/Layout';
+
+// SubComponents
+const AudioPage = dynamic(() => import('../src/pages/AudioPage'), {
+  ssr: false,
+  loading: () => (
+    <h1>
+      <b>LOADING..</b>
+    </h1>
+  ),
+});
 
 const SEO = {
   title: `index: Default title`,
@@ -117,26 +128,8 @@ class RootPage extends Component {
       <Fragment>
         <NextSeo config={SEO} />
         <Layout>
-          <div className="body-container">
-            <h1> Welcome to [${shortID}]!</h1>
-            <p>User Agent: {userAgent}</p>
-            <p>Short ID: {shortID}</p>
-            <p>Image URL: {imageURL}</p>
-            <p>Plug Title: {title}</p>
-            <p>Artist Name: {artistName}</p>
-          </div>
+          <AudioPage shortID={shortID} />
         </Layout>
-        <style jsx="true">
-          {`
-            /* APP WRAPPER */
-            .body-container {
-              grid-row-start: 2;
-              grid-column-start: 2;
-              text-align: center;
-              background-color: salmon;
-            }
-          `}
-        </style>
       </Fragment>
     );
   }

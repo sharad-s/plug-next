@@ -12,15 +12,6 @@ export default class index extends Component {
           <Navbar />
           <div id="LAYOUT">{this.props.children}</div>
         </Provider>
-        <style jsx="true">
-          {`
-						#LAYOUT {
-							display:grid;
-							grid-template-columns: 10% 1fr 10%;
-							grid-row-start:2
-						}
-					`}
-        </style>
       </Fragment>
     );
   }

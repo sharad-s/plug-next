@@ -1,12 +1,19 @@
 import React, { Component, Fragment } from 'react';
 import NextSeo from 'next-seo';
-
-// Next
-import Head from 'next/head';
+import dynamic from 'next/dynamic';
 
 // Page Container
 import Layout from '../src/components/Layout';
 
+// SubComponents
+const ExplorePage = dynamic(() => import('../src/pages/ExplorePage'), {
+  ssr: false,
+  loading: () => (
+    <h1>
+      <b>LOADING EXPLORE..</b>
+    </h1>
+  ),
+});
 // Class Component
 class RootPage extends Component {
   // Make initial request to server and populate initial props from URL Query
@@ -51,7 +58,8 @@ class RootPage extends Component {
             alt: `Explore: alt: ${plugTitle} by ${artistName}`,
           },
           {
-            url: "https://i1.sndcdn.com/artworks-000054671709-g1jtnm-t500x500.jpg",
+            url:
+              'https://i1.sndcdn.com/artworks-000054671709-g1jtnm-t500x500.jpg',
             width: 1200,
             height: 1200,
             alt: `Explore: alt: ${plugTitle} by ${artistName}`,
@@ -66,30 +74,10 @@ class RootPage extends Component {
     };
 
     return (
-      <Fragment>
+      <Layout>
         <NextSeo config={SEO} />
-        <Layout>
-          <div className="body-container">
-            <h1> Welcome to Explore!</h1>
-            <p>User Agent: {userAgent}</p>
-            <p>Short ID: {shortID}</p>
-            <p>Image URL: {imageURL}</p>
-            <p>Plug Title: {plugTitle}</p>
-            <p>Artist Name: {artistName}</p>
-          </div>
-        </Layout>
-        <style jsx>
-          {`
-            /* APP WRAPPER */
-            .body-container {
-              grid-row-start: 2;
-              grid-column-start: 2;
-              text-align: center;
-              background-color: salmon;
-            }
-          `}
-        </style>
-      </Fragment>
+        <h1> Welcome to Explore!</h1>
+      </Layout>
     );
   }
 }
