@@ -1,5 +1,9 @@
 import App, { Container } from 'next/app';
 
+// Redux
+import { Provider } from 'react-redux';
+import withReduxStore from '../lib/with-redux-store';
+
 // CSS
 import '../static/css/app.css';
 import '../static/css/pure-buttons.css';
@@ -44,19 +48,21 @@ class MyApp extends App {
   }
 
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, reduxStore } = this.props;
 
     console.log('_app.jsx: render');
 
     return (
       <Container>
         {/* <NextSeo config={DEFAULT_SEO} /> */}
-        <div id="APP-WRAPPER">
-          <Component {...pageProps} />
-        </div>
+        <Provider store={reduxStore}>
+          <div id="APP-WRAPPER">
+            <Component {...pageProps} />
+          </div>
+        </Provider>
       </Container>
     );
   }
 }
 
-export default MyApp;
+export default withReduxStore(MyApp);
