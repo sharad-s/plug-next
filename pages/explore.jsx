@@ -5,7 +5,7 @@ import NextSeo from 'next-seo';
 import Head from 'next/head';
 
 // Page Container
-import Layout from '../components/Layout';
+import Layout from '../src/components/Layout';
 
 // Class Component
 class RootPage extends Component {

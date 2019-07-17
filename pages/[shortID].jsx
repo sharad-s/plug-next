@@ -1,13 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import NextSeo from 'next-seo';
-// Next
-import Head from 'next/head';
 
 // API
-import axios from '../utils/axios';
+import axios from '../src/utils/axios';
 
 // Page Container
-import Layout from '../components/Layout';
+import Layout from '../src/components/Layout';
 
 const SEO = {
   title: `index: Default title`,
