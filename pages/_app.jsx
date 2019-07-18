@@ -4,36 +4,12 @@ import App, { Container } from 'next/app';
 import { Provider } from 'react-redux';
 import withReduxStore from '../lib/with-redux-store';
 
+// SEO
+import SEO from '../lib/SEO';
+
 // CSS
 import '../static/css/app.css';
 import '../static/css/pure-buttons.css';
-
-// let's create a configuration for next-seo
-const DEFAULT_SEO = {
-  title: '_app: title: Next.js SEO Plugin',
-  description: '_app: description: SEO made easy for Next.js projects',
-  openGraph: {
-    type: 'website',
-    locale: 'en_IE',
-    // url: 'https://plug.af',
-    title: '_app: opengraph.title: Next.js Seo',
-    description:
-      '_app: openGraph.description: Listen to music in under 60 seconds with Plug.',
-    images: [
-      {
-        url: 'https://i.imgur.com/LJfeZRs.jpg',
-        width: 1200,
-        height: 1200,
-        alt: 'Og Image Alt',
-      },
-    ],
-    // site_name: 'plug.af',
-  },
-  twitter: {
-    handle: '@brownsvgar',
-    cardType: 'summary_large_image',
-  },
-};
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -44,7 +20,7 @@ class MyApp extends App {
     }
 
     console.log('_app.jsx: getInitialProps');
-    console.log('_app.jsx: getInitialProps: ctx:', ctx);
+    // console.log('_app.jsx: getInitialProps: ctx:', ctx);
     return { pageProps };
   }
 
@@ -55,8 +31,8 @@ class MyApp extends App {
 
     return (
       <Container>
-        {/* <NextSeo config={DEFAULT_SEO} /> */}
         <Provider store={reduxStore}>
+          <SEO />
           <div id="APP-WRAPPER">
             <Component {...pageProps} />
           </div>
