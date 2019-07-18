@@ -47,8 +47,6 @@ class ExplorePage extends Component {
 		const renderedPlugs = isEmpty(plugs)
 			? null
 			: plugs.map((plug, idx) => {
-
-					console.log("PLUG", plug, "PLAYCOUNT", plug.playCount)
 					// Check Creator name if exists
 					const creatorName =
 						plug.creator === null ? 'Anonymous' : plug.creator.name;
@@ -57,20 +55,20 @@ class ExplorePage extends Component {
 
 		return (
 			<center>
-				<div class="drop-in">
-					<p class="login-text">
-						<h2 class="title recent-plugs">Recent Plugs</h2>
-					</p>
+				<div className="drop-in">
+					<div className="login-text">
+						<p className="title recent-plugs">Recent Plugs</p>
+					</div>
 				</div>
 
-				<div class="gallery-container">
+				<div className="gallery-container">
 					<InfiniteScroll
 						pageStart={0}
 						loadMore={this.loadFunc}
 						hasMore={true}
-						loader={<div class="loader" />}
+						loader={<div className="loader" />}
 					>
-						<div class="gallery">{renderedPlugs}</div>
+						<div className="gallery">{renderedPlugs}</div>
 					</InfiniteScroll>
 				</div>
 			</center>

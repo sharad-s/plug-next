@@ -36,14 +36,15 @@ const DEFAULT_SEO = {
 };
 
 class MyApp extends App {
-  static async getInitialProps({ Component, router, ctx }) {
+  static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
 
     if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx, router);
+      pageProps = await Component.getInitialProps(ctx);
     }
 
     console.log('_app.jsx: getInitialProps');
+    console.log('_app.jsx: getInitialProps: ctx:', ctx);
     return { pageProps };
   }
 

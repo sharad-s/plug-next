@@ -77,19 +77,18 @@ const setDefaultSEO = ({ shortID, imageURL, title, artistName }) => {
 // Class Component
 class RootPage extends Component {
   // Make initial request to server and populate initial props from URL Query
-  static async getInitialProps({ req }, router) {
+  static async getInitialProps({ req, query }) {
     console.log('index.jsx: getInitialProps:');
 
     // Get user agent
     const userAgent = req ? req.headers['user-agent'] : navigator.userAgent;
 
     // Get Query Params from URL
-    // console.log('index.jsx : router.query:', router.query);
-    // console.log('index.jsx : req.query:', req.query);
+    console.log('index.jsx : ctx.query:', query);
 
     try {
       // Make API call
-      const res = await axios.get(`/api/plugs/shortID/${router.query.shortID}`);
+      const res = await axios.get(`/api/plugs/shortID/${query.shortID}`);
 
       // Log Result
       // console.log('index: api: res:', res.data);

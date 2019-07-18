@@ -5,23 +5,26 @@ import { track_ClickedPlugOnExplore } from '../../utils/mixpanel';
 
 export default ({ plug }) => (
   <div
-    class="gallery-item"
-    tabindex="0"
+    className="gallery-item"
+    tabIndex="0"
+    key={plug.shortID}
     onClick={() => {
       track_ClickedPlugOnExplore(plug.shortID);
     }}
   >
     <Link href="/[shortID]" as={`/${plug.shortID}`}>
-      <img src={plug.imageURL} class="gallery-image" alt="" />
+      <a>
+        <img src={plug.imageURL} className="gallery-image" alt="" />
 
-      <div class="gallery-item-info">
-        <ul>
-          <li class="gallery-item-likes">
-            <span class="visually-hidden">Plays:</span>
-            <i class="fas fa-play" aria-hidden="true" /> {plug.playCount}
-          </li>
-        </ul>
-      </div>
+        <div className="gallery-item-info">
+          <ul>
+            <li className="gallery-item-likes">
+              <span className="visually-hidden">Plays:</span>
+              <i className="fas fa-play" aria-hidden="true" /> {plug.playCount}
+            </li>
+          </ul>
+        </div>
+      </a>
     </Link>
   </div>
 );
