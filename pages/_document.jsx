@@ -19,6 +19,8 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Poppins"
             rel="stylesheet"
           />
+          <link rel="manifest" href="/static/manifest.json" />
+          <meta name="theme-color" content="#F3E576" />
         </Head>
         <body>
           <Main />
