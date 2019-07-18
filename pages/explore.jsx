@@ -8,9 +8,10 @@ import Layout from '../src/components/Layout';
 const ExplorePage = dynamic(() => import('../src/pages/ExplorePage'), {
   ssr: false,
   loading: () => (
-    <h1>
-      <b>LOADING EXPLORE..</b>
-    </h1>
+    // <h1>
+    //   <b>LOADING EXPLORE..</b>
+    // </h1>
+    null
   ),
 });
 // Class Component

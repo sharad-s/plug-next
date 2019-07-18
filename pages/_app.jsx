@@ -1,4 +1,5 @@
 import App, { Container } from 'next/app';
+import Router from 'next/router';
 
 // Redux
 import { Provider } from 'react-redux';
@@ -20,8 +21,20 @@ class MyApp extends App {
     }
 
     console.log('_app.jsx: getInitialProps');
+
     // console.log('_app.jsx: getInitialProps: ctx:', ctx);
     return { pageProps };
+  }
+
+  async componentDidMount() {
+    const { pauseSnippet } = await import(
+      '../src/features/audioplayer/actions'
+    );
+    Router.events.on('routeChangeStart', url => {
+      console.log('_app.jsx: handleRouteChange: App is changing to: ', url);
+      console.log('_app.jsx: handleRouteChange: pauseSnippet', pauseSnippet);
+      pauseSnippet();
+    });
   }
 
   render() {

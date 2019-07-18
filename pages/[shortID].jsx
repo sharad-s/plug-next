@@ -14,9 +14,10 @@ import Layout from '../src/components/Layout';
 const AudioPage = dynamic(() => import('../src/pages/AudioPage'), {
   ssr: false,
   loading: () => (
-    <h1>
-      <b>LOADING..</b>
-    </h1>
+    // <h1>
+    //   <b>LOADING..</b>
+    // </h1>
+    null
   ),
 });
 

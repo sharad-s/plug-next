@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 // Redux
 // import { connect } from 'react-redux';
+// import {pauseSnippet} from "../../features/audioplayer/actions";
 
 // Import Subcomponents
 // import Sidebar from '../Sidebar';
