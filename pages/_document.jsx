@@ -15,6 +15,10 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <script src="https://kit.fontawesome.com/572bf705e8.js"></script>
+          <link
+            href="https://fonts.googleapis.com/css?family=Poppins"
+            rel="stylesheet"
+          />
         </Head>
         <body>
           <Main />
