@@ -511,10 +511,24 @@ body {
   
   .instructions {
     color: #fff;
+    font-size: 18px;
+    font-weight: 400;
   }
   .sc-input {
     width: 70%;
     text-align: center;
+    border: 2px solid grey;
+    border-radius: 4px;
+    background-color:transparent;
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+    padding:10px;
+  }
+
+  #SUBMIT {
+    font-size: 20px;
+    font-weight: 400;
   }
   
   .drop-in {
@@ -523,6 +537,11 @@ body {
     margin-bottom: 10vh;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .create-error-message{
+    font-size: 18px;
+    font-weight: 400;
   }
   
   .preview-container {

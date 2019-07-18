@@ -18,6 +18,7 @@ const navHandler = shortID => {
   Router.push(
     {
       pathname: '/[shortID]',
+      query: { preview: true },
     },
     `/${shortID}`,
   );
@@ -88,14 +89,14 @@ class HomePage extends Component {
     const renderedButton = this.state.loading ? (
       <Loader />
     ) : (
-      <input type="submit" value="Plug it" className="pure-button btn-share" />
+      <input type="submit" value="Plug it" id="SUBMIT" className="pure-button btn-share" />
     );
 
     return (
       <center>
         <div className="drop-in">
           <h2 className="instructions">
-            Drop the link to your Soundcloud playlist, single or profile. We'll
+            Drop the link to your Soundcloud playlist, single or profile. <br /> We'll
             do the rest.
           </h2>
           <form class="pure-form" onSubmit={this.handleSubmit}>
@@ -107,7 +108,7 @@ class HomePage extends Component {
               onChange={this.handleChange('input')}
               required
             />
-            <p className="error-message">{renderedError} </p>
+            <p className="create-error-message">{renderedError} </p>
 
             {renderedButton}
           </form>
