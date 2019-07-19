@@ -248,8 +248,9 @@ body {
   #NONSWIPABLE_CARD_BOTTOM {
     cursor: pointer;
     user-select: none;
-    position: fixed;
-    top: 14%;
+    position: absolute;
+    top: 15%;
+    left: 0%;
     bottom: 0px;
     height: inherit;
     z-index: -1;
