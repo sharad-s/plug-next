@@ -62,14 +62,16 @@ class Beatcard extends Component {
   render() {
     const { audio, track } = this.props;
 
-    const renderedPlayButtonText = audio.isPlaying ? (
-      <i className="fas fa-pause" onClick={this.handleClick} />
+    const {isPlaying} = audio;
+
+    const renderedPlayButtonText = isPlaying ? (
+      <i className="fas fa-pause" style={{color: "rgba(255,255,255,0.6)"}}onClick={this.handleClick} />
     ) : (
       <i className="fas fa-play" onClick={this.handleClick} />
     );
 
     const renderedPlayButton = (
-      <div style={{ marginLeft: '10px' }}>{renderedPlayButtonText}</div>
+      <div id="PLAY_PAUSE_BUTTON">{renderedPlayButtonText}</div>
     );
 
     const renderedPlayCount = <span> {track.playCount} </span>;
@@ -88,10 +90,10 @@ class Beatcard extends Component {
               <div className="fill" />
               <div className="details-container">
                 <div className="details">
-                  <p className="title-text noselect">
+                  <p className="title-text noselect" id="TRACK_TITLE">
                     {track.title ? track.title : null}
                   </p>
-                  <p className="title-text noselect">
+                  <p className="title-text noselect" id="TRACK_ARTIST">
                     {track.artist ? track.artist : null}
                   </p>
                 </div>
@@ -99,14 +101,15 @@ class Beatcard extends Component {
                   {audio.loading ? (
                     <Loader />
                   ) : (
-                    <Fragment>{renderedPlayCount}</Fragment>
+                     null
                   )}
                 </div>
               </div>
             </div>
 
             {/* 100% Invisble Image Overlay */}
-            <div className="invisible-overlay" id="INVISIBLE-OVERLAY" onClick={this.handleClick}>
+            <div className="invisible-overlay" id="INVISIBLE-OVERLAY" style={{backgroundColor: isPlaying ? "transparent" : "rgba(0, 0, 0, 0.4)"}}onClick={this.handleClick}>
+
               {renderedPlayButton}
             </div>
           </div>

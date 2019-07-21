@@ -319,6 +319,8 @@ body {
     border-radius: 20px 20px 0 0;
   }
   
+
+  /*  Play Pause stuff */
   .invisible-overlay {
     position: absolute;
     bottom: 0;
@@ -330,6 +332,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 20px 20px 0 0;
+
+  }
+
+  #PLAY_PAUSE_BUTTON {
+    font-size: 36px;
+    filter: drop-shadow(2px 2px 3px #000000);
   }
   
   .information-overlay {
@@ -450,6 +459,12 @@ body {
     z-index: -1;
   }
   
+
+  #TRACK_ARTIST {
+    font-size: x-large;
+  }
+
+
   /* If iPhone SE Then scale everything by 0.75 */
   @media only screen and (max-width: 361px) {
     /* Every Button in the Buttons Panel*/
