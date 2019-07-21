@@ -95,6 +95,7 @@ body {
   #LAYOUT {
     display:flex;
     flex-direction:column;
+    position:relative;
   }
 
   .body-container {
@@ -245,16 +246,21 @@ body {
   }
   
   
-  #NONSWIPABLE_CARD_BOTTOM {
+  .NONSWIPABLE_CARD_BOTTOM {
     cursor: pointer;
     user-select: none;
     position: absolute;
-    top: 15%;
+    top: 5%;
     left: 0%;
     bottom: 0px;
     height: inherit;
     z-index: -1;
     width: 100%;
+  }
+
+  #VERY_BOTTOM {
+    z-index: -2;
+    top: 6%;
   }
   
   #NONSWIPABLE_CARD_BOTTOM .btn-sc {
@@ -321,6 +327,9 @@ body {
     height: 100%;
     background: rgba(0, 0, 0, 0);
     z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .information-overlay {

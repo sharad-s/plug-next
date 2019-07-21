@@ -202,8 +202,15 @@ class App extends Component {
 
             {/* Bottom, Fixed Non-Swipable Card */}
             {tracks.length > 1 && (
-              <div id="NONSWIPABLE_CARD_BOTTOM">
+              <div className="NONSWIPABLE_CARD_BOTTOM">
                 <Beatcard track={tracks[1]} />
+              </div>
+            )}
+
+            {/* Bottom, Fixed Non-Swipable Card */}
+            {tracks.length > 1 && (
+              <div className="NONSWIPABLE_CARD_BOTTOM" id="VERY_BOTTOM" >
+                <Beatcard track={emptyTrack} />
               </div>
             )}
           </Fragment>

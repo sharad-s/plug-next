@@ -7,16 +7,10 @@ import {
   pauseSnippet,
   playSnippet,
   setSnippet,
-  nextSong,
-  prevSong,
 } from '../../features/audioplayer/actions';
 
 // Subcomponents
 import { SmallLoader as Loader } from '../Loader';
-
-const regex = /large/gi;
-const increaseImageResolution = originalURL =>
-  originalURL.replace(regex, 't500x500');
 
 class Beatcard extends Component {
   // Update animation based nextProps.audio.secondsPassed
@@ -74,7 +68,9 @@ class Beatcard extends Component {
       <i className="fas fa-play" onClick={this.handleClick} />
     );
 
-    const renderedPlayButton = (<div style={{marginLeft:"10px"}}>{renderedPlayButtonText}</div>) ;
+    const renderedPlayButton = (
+      <div style={{ marginLeft: '10px' }}>{renderedPlayButtonText}</div>
+    );
 
     const renderedPlayCount = <span> {track.playCount} </span>;
 
@@ -91,15 +87,6 @@ class Beatcard extends Component {
             <div className="information-overlay" id="OVERLAY">
               <div className="fill" />
               <div className="details-container">
-                <div className="icon-on-overlay">
-                  {audio.loading ? (
-                    <Loader />
-                  ) : (
-                    <Fragment>
-                      {renderedPlayCount} {renderedPlayButton}
-                    </Fragment>
-                  )}
-                </div>
                 <div className="details">
                   <p className="title-text noselect">
                     {track.title ? track.title : null}
@@ -108,11 +95,20 @@ class Beatcard extends Component {
                     {track.artist ? track.artist : null}
                   </p>
                 </div>
+                <div className="icon-on-overlay">
+                  {audio.loading ? (
+                    <Loader />
+                  ) : (
+                    <Fragment>{renderedPlayCount}</Fragment>
+                  )}
+                </div>
               </div>
             </div>
 
             {/* 100% Invisble Image Overlay */}
-            <div className="invisible-overlay" id="INVISIBLE-OVERLAY" />
+            <div className="invisible-overlay" id="INVISIBLE-OVERLAY" onClick={this.handleClick}>
+              {renderedPlayButton}
+            </div>
           </div>
 
           {/* Soundcloud Underbutton */}
