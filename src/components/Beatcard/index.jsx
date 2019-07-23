@@ -109,7 +109,6 @@ class Beatcard extends Component {
 
             {/* 100% Invisble Image Overlay */}
             <div className="invisible-overlay" id="INVISIBLE-OVERLAY" style={{backgroundColor: isPlaying ? "transparent" : "rgba(0, 0, 0, 0.4)"}}onClick={this.handleClick}>
-
               {renderedPlayButton}
             </div>
           </div>
