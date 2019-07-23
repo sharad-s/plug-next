@@ -156,11 +156,11 @@ class App extends Component {
 
   onAfterSwipe = () => {
     const swipeDirection = this.state.currentSwipe;
-
-    this.remove();
     console.log(
-      `SwipableCards: onAfterSwipe: Actual Swipe ${swipeDirection}: calling newNextTrack()`,
+      `SwipableCards: onAfterSwipe: Actual Swipe ${swipeDirection}: calling this.remove() then newNextTrack() with disableForceSwipe`,
     );
+    this.remove();
+
     newNextTrack(swipeDirection, { disableForceSwipe: true, swipeDirection });
     // this.setState({ currentSwipe: null }, () => {
     //   console.log(

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "plug-next",
+  "name": "plugwithnext",
   "routes": [	
     {	
       "src": "^/service-worker.js$",	

@@ -294,7 +294,6 @@ const forceSwipeCard = swipeDirection => {
 	switch (swipeDirection) {
 		case LEFT:
 			console.log('ACTIONS: forceSwipeCard: Calling swipeFunction.left()');
-			console.log('Swiping LEFT');
 			Swiper.swipeLeft();
 			console.log('After Swiping LEFT');
 			// swipeFunction.left();
@@ -329,8 +328,8 @@ export const newUpdatePlaylist = async plug => {
 
 	console.log('Dispatching Plug', plug);
 	await checkPlug(plug);
-	const response = await resolveSoundcloudURL(plug.soundcloudURL);
-	console.log('SC OBJECT', response);
+	// const response = await resolveSoundcloudURL(plug.soundcloudURL);
+	// console.log('SC OBJECT', response);
 	dispatch(clearPlaylistAction());
 	dispatch(clearAllAction());
 	dispatch(newUpdatePlugAction(plug));

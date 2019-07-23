@@ -249,7 +249,7 @@ body {
   .NONSWIPABLE_CARD_BOTTOM {
     cursor: pointer;
     position: absolute;
-    top: 5%;
+    top: 5.5%;
     left: 0%;
     bottom: 0px;
     height: inherit;
@@ -259,7 +259,7 @@ body {
 
   #VERY_BOTTOM {
     z-index: -2;
-    top: 6%;
+    top: 7%;
   }
   
   #NONSWIPABLE_CARD_BOTTOM .btn-sc {
