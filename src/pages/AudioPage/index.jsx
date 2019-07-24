@@ -73,7 +73,7 @@ class AudioPage extends Component {
 
     if (this.state.showDiv === false) {
       await playSnippet();
-      await setSnippet();
+      await setSnippet().then(() => console.log(" AudioPage: setSnippet(): Did the set Snippet"));
     }
 
     console.log('componentDidMount:READY');
