@@ -6,6 +6,9 @@
 # testing
 /coverage
 
+#zeit
+now.json
+
 # production
 /build
 /dist

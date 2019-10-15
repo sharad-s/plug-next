@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "swag",
+  "name": "plugnext",
   "routes": [	
     {	
       "src": "^/service-worker.js$",	
