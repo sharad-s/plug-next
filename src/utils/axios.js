@@ -8,6 +8,6 @@ const devPort = parseInt(process.env.PORT, 10) || 3000;
 const devProxy = `http://localhost:${devPort}/`
 
 
-const baseURL = dev  ? `http://localhost:${devPort}/` : 'https://plug-api-production.herokuapp.com/';
+const baseURL = 'https://plug-api-production.herokuapp.com/';
 
 export default axios.create({ baseURL });

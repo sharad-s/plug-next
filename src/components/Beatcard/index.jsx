@@ -65,13 +65,13 @@ class Beatcard extends Component {
     const {isPlaying} = audio;
 
     const renderedPlayButtonText = isPlaying ? (
-      <i className="fas fa-pause" style={{color: "rgba(255,255,255,0.6)"}}onClick={this.handleClick} />
+      <i className="fas fa-pause" style={{color: "rgba(255,255,255,0.6)"}} />
     ) : (
-      <i className="fas fa-play" onClick={this.handleClick} />
+      <i className="fas fa-play" />
     );
 
     const renderedPlayButton = (
-      <div id="PLAY_PAUSE_BUTTON">{renderedPlayButtonText}</div>
+      <div id="PLAY_PAUSE_BUTTON" onClick={this.handleClick}>{renderedPlayButtonText}</div>
     );
 
     const renderedPlayCount = <span> {track.playCount} </span>;
@@ -108,7 +108,7 @@ class Beatcard extends Component {
             </div>
 
             {/* 100% Invisble Image Overlay */}
-            <div className="invisible-overlay" id="INVISIBLE-OVERLAY" style={{backgroundColor: isPlaying ? "transparent" : "rgba(0, 0, 0, 0.4)"}}onClick={this.handleClick}>
+            <div className="invisible-overlay" id="INVISIBLE-OVERLAY" style={{backgroundColor: isPlaying ? "transparent" : "rgba(0, 0, 0, 0.4)"}}>
               {renderedPlayButton}
             </div>
           </div>
