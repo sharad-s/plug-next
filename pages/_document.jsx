@@ -25,6 +25,7 @@ class MyDocument extends Document {
           <Main />
           <NextScript />
           <script src="https://kit.fontawesome.com/572bf705e8.js"></script>
+          <script data-ad-client="ca-pub-8750402199857064" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         </body>
       </Html>
     );
