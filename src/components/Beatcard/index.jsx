@@ -1,5 +1,4 @@
-import React, { Component, Fragment } from 'react';
-import isEmpty from '../../utils/isEmpty';
+import React, { Component } from 'react';
 
 // Redux
 import { connect } from 'react-redux';
@@ -26,17 +25,6 @@ class Beatcard extends Component {
     }
 
     elem.style.transform = `translate3d(${numnum}%, 0, 0)`;
-
-    /* Debug for animation */
-    // console.log(
-    //   'componentWillReceiveProps',
-    //   'Current Second',
-    //   secondsPassed,
-    //   'Translate3D Percentage:',
-    //   numnum,
-    //   "isPlaying:",
-    //   nextProps.audio.isPlaying
-    // );
   }
 
   handleClick = async e => {
@@ -74,13 +62,13 @@ class Beatcard extends Component {
       <div id="PLAY_PAUSE_BUTTON" onClick={this.handleClick}>{renderedPlayButtonText}</div>
     );
 
-    const renderedPlayCount = <span> {track.playCount} </span>;
+    // const renderedPlayCount = <span> {track.playCount} </span>;
 
     return (
       <div className="card-container-god">
         {/* Card In Whole */}
         <div className="card-container noselect">
-          {/* Card Image + Play BUtton Container */}
+          {/* Card Image + Play Button Container */}
           <div className="card-image-container">
             {/* Card Image */}
             <img src={track.imageURL} className="card-image" />

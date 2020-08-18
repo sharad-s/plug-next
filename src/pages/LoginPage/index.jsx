@@ -14,9 +14,6 @@ import { loginUser } from '../../features/auth/actions';
 // SubComponents
 import LoginForm from './LoginForm';
 
-// Mixpanel
-// import { track_RegisteredUser, track_CreatePlug } from '../../utils/mixpanel';
-
 const loginTextStyle = {
   textDecoration: 'none',
   color: '#f3e576',

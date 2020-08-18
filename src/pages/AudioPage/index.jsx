@@ -5,12 +5,9 @@ import React, { Component, Fragment } from 'react';
 import ButtonsPanel from '../../components/ButtonsPanel';
 import PreviewPanel from '../../components/PreviewPanel';
 import SwipableCards from '../../components/SwipableCards';
-import Overlay from '../../components/Overlay';
-// import Modal from "../../components/Modal/EmailSignupModal"
 import { Loader } from '../../components/Loader';
 
 // Mixpanel
-
 import { Mixpanel } from '../../utils/mixpanel';
 import { track_LoadedPlugPage } from '../../utils/mixpanel';
 

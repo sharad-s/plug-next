@@ -10,9 +10,6 @@ import authReducer from '../features/auth/reducer';
 import plugReducer from '../features/plugs/reducer';
 import pageReducer from '../features/page/reducer';
 
-
-
-
 const rootReducer = combineReducers({
   audio: audioReducer,
   errors: errorReducer,
@@ -30,7 +27,6 @@ const store = createStore(
   initialState,
   composeWithDevTools(
     applyMiddleware(...middleware),
-    //  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   ),
 );
 

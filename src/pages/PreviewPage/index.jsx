@@ -13,7 +13,6 @@ import CopyURLButton from '../../components/ShareButtons/CopyURLButton';
 import TweetButton from '../../components/ShareButtons/TweetButton';
 
 // Mixpanel
-
 import { Mixpanel } from '../../utils/mixpanel';
 
 // Redux

@@ -15,7 +15,6 @@ export default ({ plug }) => (
     <Link href="/[shortID]" as={`/${plug.shortID}`}>
       <a>
         <img src={plug.imageURL} className="gallery-image" alt="" />
-
         <div className="gallery-item-info">
           <ul>
             <li className="gallery-item-likes">
